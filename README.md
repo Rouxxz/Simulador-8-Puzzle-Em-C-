@@ -275,7 +275,7 @@ Bibliotecas utilizadas:
 ### 1. Clone o repositório
 
 ```bash
-git clone SEU_LINK_DO_REPOSITORIO
+git clone https://github.com/Rouxxz/Simulador-8-Puzzle-Em-C-.git
 ```
 
 ### 2. Entre na pasta
