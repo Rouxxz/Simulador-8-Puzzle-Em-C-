@@ -1,7 +1,62 @@
-🧩 Simulador 8-Puzzle (Em C)Um simulador completo do clássico quebra-cabeça deslizante 8-Puzzle, desenvolvido em linguagem C. Este projeto permite que você jogue o puzzle manualmente ou assista a uma Inteligência Artificial resolvê-lo utilizando algoritmos clássicos de busca.✨ FuncionalidadesModo Jogador: Jogue manualmente usando os comandos do teclado.Embaralhamento Inteligente: O tabuleiro é embaralhado automaticamente a partir do estado resolvido, garantindo que o puzzle gerado sempre tenha solução.Solucionador IA - Algoritmo A (A-Star):* Encontra a solução ótima (caminho mais curto) utilizando a heurística da Distância de Manhattan.Solucionador IA - Busca em Profundidade Limitada Iterativa (IDDFS): Uma abordagem alternativa de busca cega iterativa para encontrar a solução, limitando o consumo de memória.Histórico de Passos: A IA não apenas resolve, mas exibe graficamente todos os passos (movimentos) necessários para chegar à vitória.🚀 Como Compilar e ExecutarPara rodar este jogo, você precisará de um compilador C instalado na sua máquina (como o gcc).1. Clonar o repositórioPrimeiro, faça o clone deste repositório para a sua máquina local:Bashgit clone https://github.com/SEU_USUARIO/NOME_DO_REPOSITORIO.git
-cd NOME_DO_REPOSITORIO
-2. Compilar o códigoAbra o terminal na pasta do projeto e execute o comando abaixo para compilar o arquivo fonte (supondo que o arquivo se chame 8puzzle.c):No Linux ou macOS:Bashgcc 8puzzle.c -o 8puzzle
-No Windows:DOSgcc 8puzzle.c -o 8puzzle.exe
-3. Executar o jogoApós a compilação, inicie o simulador rodando o executável gerado:No Linux ou macOS:Bash./8puzzle
-No Windows:DOS8puzzle.exe
-🎮 Como JogarAo iniciar o programa, você verá um menu com as seguintes opções:Iniciar Novo Jogo: O sistema gera um tabuleiro embaralhado e passa o controle para você.Mostrar Solução (Usando IA): O sistema gera um tabuleiro aleatório e pede para você escolher qual algoritmo (A* ou IDDFS) deve resolvê-lo.Sair: Encerra o programa.Comandos do Modo JogadorNo modo manual, você move as peças para ocupar o espaço vazio (0). Os comandos não diferenciam maiúsculas de minúsculas:U (Up/Cima): Move a peça que está abaixo do vazio para cima.D (Down/Baixo): Move a peça que está acima do vazio para baixo.L (Left/Esquerda): Move a peça que está à direita do vazio para a esquerda.R (Right/Direita): Move a peça que está à esquerda do vazio para a direita.Q (Quit/Sair): Abandona a partida atual e volta ao menu principal.🧠 Detalhes Técnicos (Algoritmos)A implementação das buscas foi construída de forma iterativa, utilizando uma estrutura de dados customizada de Fila/Pilha genérica:A (Busca Informada):* Utiliza uma Fila de Prioridade. A função de avaliação é $f(n) = g(n) + h(n)$, onde o custo heurístico $h(n)$ é calculado somando a distância de cada peça até sua posição correta (Distância de Manhattan).IDDFS (Busca Cega): Utiliza uma estrutura de Pilha (LIFO) inserida em um laço iterativo que aumenta gradativamente o limite de profundidade da árvore de busca, combinando a eficiência de memória da Busca em Profundidade (DFS) com a completude da Busca em Largura (BFS).📄 LicençaEste projeto está licenciado sob a Licença MIT - veja o arquivo LICENSE para obter detalhes.
+# 🧩 8-Puzzle em C com Inteligência Artificial
+
+---
+
+Este projeto implementa o clássico **quebra-cabeça 8-Puzzle**, onde o objetivo é organizar os números de **1 a 8** em ordem crescente, deixando o espaço vazio (0) na última posição.
+
+O projeto foi totalmente desenvolvido em C e permite tanto **jogo manual** quanto **resolução automática** utilizando algoritmos de busca (IA).
+
+---
+
+## 🎮 Modos de Execução
+
+Ao iniciar o programa, o usuário pode escolher entre:
+
+1. 🏃 **Iniciar Novo Jogo** (Tabuleiro embaralhado para jogar manualmente)
+2. 🤖 **Mostrar Solução** (Resolução automática pela IA)
+3. 🚪 **Sair**
+
+---
+
+## 🧠 Algoritmos Utilizados
+
+🔹 **Algoritmo A* (A-Star)**
+* Garante encontrar a solução ótima (caminho mais curto)
+* Utiliza a heurística da **Distância de Manhattan** para guiar a busca
+* Usa uma fila de prioridade para controle dos nós, baseada no menor custo total
+
+🔹 **Busca em Profundidade Limitada Iterativa (IDDFS)**
+* Explora caminhos em profundidade até um limite definido, aumentando-o a cada iteração
+* Usa estrutura de pilha (LIFO)
+* Combina a eficiência de memória da busca em profundidade com a garantia de encontrar a solução da busca em largura
+
+---
+
+## 📁 Estrutura do Projeto
+
+```text
+📦 8-puzzle-c
+├── 8puzzle.c   # Contém toda a implementação do jogo, estruturas e algoritmos de busca
+└── README.md   # Documentação do projeto
+
+## ▶️ Como Compilar e Executar
+1️⃣ Compilar
+Abra o terminal na pasta do projeto e execute:
+
+Bash
+gcc 8puzzle.c -o puzzle
+
+2️⃣ Executar
+No Linux ou macOS:
+
+Bash
+./puzzle
+
+No Windowns:
+DOS
+puzzle.exe
+
+⚠️ Observação: Certifique-se de ter um compilador C (como o GCC) devidamente instalado e configurado nas variáveis de ambiente do seu sistema operacional.
+
+📄 Licença
+Este projeto está licenciado sob a Licença MIT - veja o arquivo LICENSE para obter detalhes.
